@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
-import { AppComponent } from './app.component';
+import { AppComponent } from '../components/app/app.component';
+import {RegFormComponent} from '../components/regform/regform.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegFormComponent
   ],
   imports: [
     BrowserModule
