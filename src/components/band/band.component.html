@@ -1,0 +1,13 @@
+<div class="bands-wrapper">
+  <div *ngIf="bands.length > 0" class="bands">
+    <h2 *ngIf="selectedBand">My favorite band is: {{selectedBand.name}}</h2>
+    <p>Bands List:</p>
+    <ul>
+      <li *ngFor="let band of bands">
+        <p>{{ band.name }}</p>
+        <button *ngIf="band != selectedBand" (click)="selectBand(band)">Select</button>
+        <button (click)="removeBand(band)">Remove</button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,10 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-
-import { AppComponent } from '../components/app/app.component';
+import {AppComponent} from '../components/app/app.component';
 import {RegFormComponent} from '../components/regform/regform.component';
-
+import {BandModule} from "./band.module";
 
 @NgModule({
   declarations: [
@@ -12,9 +11,10 @@ import {RegFormComponent} from '../components/regform/regform.component';
     RegFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BandModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
