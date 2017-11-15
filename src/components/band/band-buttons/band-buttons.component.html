@@ -1,0 +1,10 @@
+<div class="band-buttons">
+  <div *ngIf="band != selectedBand; then select else unselect"></div>
+  <ng-template #select>
+    <button (click)="selectBand(band)">Select</button>
+  </ng-template>
+  <ng-template #unselect>
+    <button (click)="unselectBand()">Unselect</button>
+  </ng-template>
+  <button (click)="removeBand(band)">Remove</button>
+</div>

@@ -1,13 +1,37 @@
 <div class="bands-wrapper">
   <div *ngIf="bands.length > 0" class="bands">
-    <h2 *ngIf="selectedBand">My favorite band is: {{selectedBand.name}}</h2>
-    <p>Bands List:</p>
-    <ul>
-      <li *ngFor="let band of bands">
-        <p>{{ band.name }}</p>
-        <button *ngIf="band != selectedBand" (click)="selectBand(band)">Select</button>
-        <button (click)="removeBand(band)">Remove</button>
-      </li>
-    </ul>
+    <div *ngIf="selectedBand; then favorite else none"></div>
+    <ng-template #favorite><h2>My favorite band is: {{selectedBand.name}}</h2></ng-template>
+    <ng-template #none><h2>I don't have any favorite bands</h2></ng-template>
+    <div class="bands-table-wrapper">
+      <h3>Bands Table:</h3>
+      <app-band-menu (bandToAdd)="addBand($event)"></app-band-menu>
+      <table class="bands-table">
+        <thead class="bands-table-header">
+        <tr>
+          <th>Name</th>
+          <th>Genre</th>
+          <th>Albums</th>
+        </tr>
+        </thead>
+        <tbody class="bands-table-body" *ngFor="let band of bands">
+        <tr>
+          <td>{{band.name}}</td>
+          <td>{{band.genre}}</td>
+          <td>
+            <ul>
+              <li *ngFor="let album of band.albumsList">
+                "{{album.name}}" {{album.year}}
+              </li>
+            </ul>
+          </td>
+          <app-band-buttons [band]="band" [selectedBand]="selectedBand"
+                            (bandSelected)="bandSelected($event)"
+                            (bandToRemove)="deleteBand($event)">
+          </app-band-buttons>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
