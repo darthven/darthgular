@@ -1,7 +1,7 @@
 <div class="menu-wrapper">
   <div class="bands-menu">
-    <button (click)="addNewBand()">Add New</button>
-    <button (click)="downloadBand()">Download</button>
-    <button (click)="restoreBands()">Restore</button>
+    <a class="bands-menu-add-button" (click)="addNewBand(band)">Add New</a>
+    <a #downloader class="bands-menu-dwl-button" (click)="downloadBand()">Download</a>
+    <a class="bands-menu-rst-button" (click)="restoreBands()">Restore</a>
   </div>
 </div>

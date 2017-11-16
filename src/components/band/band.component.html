@@ -3,9 +3,11 @@
     <div *ngIf="selectedBand; then favorite else none"></div>
     <ng-template #favorite><h2>My favorite band is: {{selectedBand.name}}</h2></ng-template>
     <ng-template #none><h2>I don't have any favorite bands</h2></ng-template>
+    <!--<app-common-popup #alertPopup hidden="true" [title]="selectedBand.name">{{selectedBand.description}}-->
+    <!--</app-common-popup>-->
     <div class="bands-table-wrapper">
       <h3>Bands Table:</h3>
-      <app-band-menu (bandToAdd)="addBand($event)"></app-band-menu>
+      <app-band-menu (bandToAdd)="addBand($event)" (bandToDownload)="downloadBand($event)"></app-band-menu>
       <table class="bands-table">
         <thead class="bands-table-header">
         <tr>
@@ -34,4 +36,5 @@
       </table>
     </div>
   </div>
+  <app-table-overview-example>Loading Material Docs example...</app-table-overview-example>
 </div>

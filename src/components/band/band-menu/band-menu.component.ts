@@ -1,28 +1,28 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from "@angular/core";
 import {Band} from "../../../services/band.service";
 
 
 @Component({
   selector: "app-band-menu",
-  templateUrl: "./band-menu.component.html"
+  templateUrl: "./band-menu.component.html",
+  styleUrls: ["./band-menu.component.scss"]
 })
 export class BandMenuComponent {
 
-  @Input()
-  selectedBand: Band;
+  @ViewChild('downloader') element: ElementRef;
 
   @Output()
   bandToAdd: EventEmitter<Band> = new EventEmitter();
 
   @Output()
-  bandToDownload: EventEmitter<Band> = new EventEmitter();
+  bandToDownload: EventEmitter<ElementRef> = new EventEmitter();
 
   addNewBand(band: Band) {
     this.bandToAdd.emit(band);
   }
 
-  downloadBand(band: Band) {
-    this.bandToDownload.emit(band);
+  downloadBand() {
+    this.bandToDownload.emit(this.element);
   }
 
   restoreBands() {}

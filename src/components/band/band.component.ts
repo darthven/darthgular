@@ -1,15 +1,18 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
 import {Band, BandService, Genre} from "../../services/band.service";
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: "app-band",
   templateUrl: "./band.component.html",
-  styleUrls: ["./band.component.css"]
+  styleUrls: ["./band.component.scss"]
 })
 export class BandComponent implements OnInit {
 
   bands: Band[] = [];
   selectedBand: Band;
+
+  @ViewChild("alertPopup") element: ElementRef;
 
   constructor(private service: BandService) {
   }
@@ -53,5 +56,16 @@ export class BandComponent implements OnInit {
 
   deleteBand(band: Band): Band[] {
     return this.service.deleteBand(band, this.bands);
+  }
+
+  downloadBand(el: ElementRef): void {
+    console.log(el);
+    if (!isNullOrUndefined(this.selectedBand)) {
+      const data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.selectedBand));
+      el.nativeElement.setAttribute("href", `data: ${data}`);
+      el.nativeElement.setAttribute("download", "band.json");
+    } else {
+      alert("Please, select any band from the table");
+    }
   }
 }
