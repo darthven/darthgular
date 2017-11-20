@@ -10,7 +10,7 @@ import {isNullOrUndefined} from "util";
 export class BandComponent implements OnInit {
 
   bands: Band[] = [];
-  selectedBand: Band;
+  selectedBands: Band[] = [];
 
   @ViewChild("alertPopup") element: ElementRef;
 
@@ -22,7 +22,11 @@ export class BandComponent implements OnInit {
   }
 
   bandSelected(band: Band) {
-    this.selectedBand = band;
+    this.selectedBands.push(band);
+  }
+
+  bandUnselected(band: Band) {
+    this.selectedBands.splice(this.selectedBands.indexOf(band), 1);
   }
 
   addBand(band: Band): number {
@@ -58,14 +62,14 @@ export class BandComponent implements OnInit {
     return this.service.deleteBand(band, this.bands);
   }
 
-  downloadBand(el: ElementRef): void {
-    console.log(el);
-    if (!isNullOrUndefined(this.selectedBand)) {
-      const data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.selectedBand));
-      el.nativeElement.setAttribute("href", `data: ${data}`);
-      el.nativeElement.setAttribute("download", "band.json");
-    } else {
-      alert("Please, select any band from the table");
-    }
-  }
+  // downloadBand(el: ElementRef): void {
+  //   console.log(el);
+  //   if (!isNullOrUndefined(this.selectedBand)) {
+  //     const data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.selectedBand));
+  //     el.nativeElement.setAttribute("href", `data: ${data}`);
+  //     el.nativeElement.setAttribute("download", "band.json");
+  //   } else {
+  //     alert("Please, select any band from the table");
+  //   }
+  // }
 }

@@ -1,25 +1,34 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, Output, ViewChild} from "@angular/core";
 import {Band} from "../../../services/band.service";
+import {MatCheckbox} from "@angular/material";
 
 @Component({
   selector: "app-band-buttons",
-  templateUrl: "./band-buttons.component.html"
+  templateUrl: "./band-buttons.component.html",
+  styleUrls: ["./band-buttons.component.scss"]
 })
 export class BandButtonsComponent {
 
-  @Input() selectedBand: Band;
+
+  @ViewChild(MatCheckbox) checkBox: MatCheckbox;
+
   @Input() band: Band;
+
   @Output()
   bandSelected: EventEmitter<Band> = new EventEmitter();
+
+  @Output()
+  bandUnselected: EventEmitter<Band> = new EventEmitter();
+
   @Output()
   bandToRemove: EventEmitter<Band> = new EventEmitter();
 
-  selectBand(band: Band): void {
-    this.bandSelected.emit(band);
-  }
-
-  unselectBand(): void {
-    this.bandSelected.emit(null);
+  checkBand(band: Band): void {
+    if (!this.checkBox.checked) {
+      this.bandSelected.emit(band);
+    } else {
+      this.bandUnselected.emit(band);
+    }
   }
 
   removeBand(band: Band): void {
