@@ -1,0 +1,76 @@
+{
+    "bandList": [
+        {
+            "name": "Deep Purple",
+            "genre": "CLASSIC_ROCK",
+            "description": "",
+            "imageUrl": "",
+            "albumsList": [
+                {
+                    "name": "Shades of Deep Purple",
+                    "year": 1968
+                },
+                {
+                    "name": "The Book of Taliesyn",
+                    "year": 1968
+                },
+                {
+                    "name": "Deep Purple",
+                    "year": 1969
+                },
+                {
+                    "name": "Deep Purple In Rock",
+                    "year": 1970
+                }
+            ]
+        },
+        {
+            "name": "Black Sabbath",
+            "genre": "HEAVY_METAL",
+            "description": "",
+            "imageUrl": "",
+            "albumsList": [
+                {
+                    "name": "Black Sabbath",
+                    "year": 1970
+                },
+                {
+                    "name": "Paranoid",
+                    "year": 1970
+                },
+                {
+                    "name": "Master of Reality",
+                    "year": 1971
+                },
+                {
+                    "name": "Black Sabbath, Vol. 4",
+                    "year": 1972
+                }
+            ]
+        },
+        {
+            "name": "Pink Floyd",
+            "genre": "CLASSIC_ROCK",
+            "description": "",
+            "imageUrl": "",
+            "albumsList": [
+                {
+                    "name": "The Piper at the Gates of Dawn",
+                    "year": 1967
+                },
+                {
+                    "name": "A Saucerful of Secrets",
+                    "year": 1968
+                },
+                {
+                    "name": "Music from the Film More",
+                    "year": 1969
+                },
+                {
+                    "name": "Ummagumma",
+                    "year": 1969
+                }
+            ]
+        }
+    ]
+}

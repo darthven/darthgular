@@ -1,12 +1,10 @@
 <div class="bands-table-wrapper">
   <app-band-menu (bandToAdd)="addBand($event)" (bandToDownload)="downloadBand($event)"></app-band-menu>
   <div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-    </mat-form-field>
+      Header   
   </div>
   <div class="example-container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" matSort>
+    <mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="genre">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Genre</mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.genre}}</mat-cell>
@@ -37,8 +35,7 @@
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </mat-table>   
   </div>
 </div>
 

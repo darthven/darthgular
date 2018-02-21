@@ -1,6 +1,5 @@
 import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from "@angular/core";
-import {Band} from "../../../services/band.service";
-
+import { Band } from "../../../models/band.model";
 
 @Component({
   selector: "app-band-menu",
